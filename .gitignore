@@ -9,6 +9,19 @@ cache/
 data/
 *.csv
 *.json
+*.txt
+*.db
+*.sqlite
+*.jpg
+*.png
+*.mp4
+*.mp3
+*.mkv
+*.avi
+*.flac
+*.zip
+*.tar.gz
+*.log
 
 # ide
 .vscode/

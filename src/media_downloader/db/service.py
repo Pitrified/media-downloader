@@ -14,6 +14,7 @@ from sqlalchemy import select
 from sqlalchemy import text
 from sqlalchemy.ext.asyncio import async_sessionmaker
 from sqlalchemy.ext.asyncio import create_async_engine
+from sqlalchemy.orm import selectinload
 
 from media_downloader.db.models import Base
 from media_downloader.db.models import DownloadJob
@@ -87,7 +88,12 @@ class DownloadDBService:
             The job, or None if not found.
         """
         async with self._session_factory() as session:
-            return await session.get(DownloadJob, job_id)
+            result = await session.execute(
+                select(DownloadJob)
+                .where(DownloadJob.id == job_id)
+                .options(selectinload(DownloadJob.media_files))
+            )
+            return result.scalar_one_or_none()
 
     async def get_pending_jobs(self) -> list[DownloadJob]:
         """Fetch all pending jobs ordered by creation time.

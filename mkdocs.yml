@@ -75,6 +75,9 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Getting Started: getting-started.md
+  - Library:
+      - Using the Library: library/overview.md
+      - Using the HTTP API: library/http-api.md
   - Guides:
       - UV Package Manager: guides/uv.md
       - Pre-commit Hooks: guides/pre_commit.md

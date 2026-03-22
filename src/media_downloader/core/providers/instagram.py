@@ -54,7 +54,19 @@ class InstaDownloader:
         import instaloader  # noqa: PLC0415
 
         lg.info(f"Downloading Instagram post: {source_id}")
+
+        # Resolve to an absolute path so that dirname_pattern is unambiguous
+        # regardless of the process CWD.  Instaloader's `target` argument is
+        # treated as a label (not a filesystem path) and is substituted into
+        # dirname_pattern via str.format(target=...).  Passing the full path as
+        # `target` causes instaloader to sanitise the `/` separators into the
+        # Unicode division slash (U+2215), producing a single mangled directory
+        # name instead of nested folders.  Instead we fix dirname_pattern to the
+        # resolved target directory and pass only the shortcode as the target.
+        target_dir = self.storage.source_dir(SourceType.INSTAGRAM, source_id).resolve()
+
         loader = instaloader.Instaloader(
+            dirname_pattern=str(target_dir),
             download_videos=True,
             download_video_thumbnails=True,
             save_metadata=False,
@@ -62,10 +74,9 @@ class InstaDownloader:
         )
 
         post = instaloader.Post.from_shortcode(loader.context, source_id)
-        target_dir = self.storage.source_dir(SourceType.INSTAGRAM, source_id)
 
-        # Download into the target directory
-        loader.download_post(post, target=str(target_dir))
+        # Pass only the shortcode; dirname_pattern already encodes the full path.
+        loader.download_post(post, target=source_id)
 
         # Collect downloaded files
         video_file = None
