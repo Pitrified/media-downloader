@@ -11,6 +11,7 @@ is used to load different paths and other parameters based on the environment.
 from loguru import logger as lg
 
 from media_downloader.metaclasses.singleton import Singleton
+from media_downloader.params.downloader_params import DownloaderParams
 from media_downloader.params.env_type import EnvType
 from media_downloader.params.media_downloader_paths import MediaDownloaderPaths
 from media_downloader.params.sample_params import SampleParams
@@ -47,6 +48,10 @@ class MediaDownloaderParams(metaclass=Singleton):
             stage=self.env_type.stage,
             location=self.env_type.location,
         )
+        self.downloader = DownloaderParams(
+            paths=self.paths,
+            env_type=self.env_type,
+        )
 
     def __str__(self) -> str:
         """Return the string representation of the object."""
@@ -54,6 +59,7 @@ class MediaDownloaderParams(metaclass=Singleton):
         s += f"\n{self.paths}"
         s += f"\n{self.sample}"
         s += f"\n{self.webapp}"
+        s += f"\n{self.downloader}"
         return s
 
     def __repr__(self) -> str:
@@ -74,3 +80,8 @@ def get_media_downloader_paths() -> MediaDownloaderPaths:
 def get_webapp_params() -> WebappParams:
     """Get the webapp params."""
     return get_media_downloader_params().webapp
+
+
+def get_downloader_params() -> DownloaderParams:
+    """Get the downloader params."""
+    return get_media_downloader_params().downloader
