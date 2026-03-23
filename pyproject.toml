@@ -17,22 +17,22 @@ instagram = ["instaloader>=4.14"]
 video = ["yt-dlp>=2024.1.0"]
 recipe = ["recipe-scrapers>=14.0", "trafilatura>=1.8"]
 stt-local = [
-    "llm-core[whisper]>=0.1.0",
+    "llm-core[whisper] @ git+https://github.com/Pitrified/llm-core@v0.1.0",
     "pydub>=0.25",
 ]
 stt-local-fast = [
-    "llm-core[faster-whisper]>=0.1.0",
+    "llm-core[faster-whisper] @ git+https://github.com/Pitrified/llm-core@v0.1.0",
     "pydub>=0.25",
 ]
 stt-api = [
-    "llm-core[openai]>=0.1.0",
+    "llm-core[openai] @ git+https://github.com/Pitrified/llm-core@v0.1.0",
     "pydub>=0.25",
 ]
 llm-core-base = [
-    "llm-core>=0.1.0",
+    "llm-core @ git+https://github.com/Pitrified/llm-core@v0.1.0",
 ]
 webapp = [
-    "fastapi-tools>=0.1.0",
+    "fastapi-tools @ git+https://github.com/Pitrified/fastapi-tools@v0.1.0",
     "fastapi>=0.109.0",
     "uvicorn[standard]>=0.27.0",
 ]
@@ -42,6 +42,9 @@ box = [
 all = [
     "media-downloader[instagram,video,recipe,stt-local,webapp]",
 ]
+
+[project.urls]
+Repository = "https://github.com/Pitrified/media-downloader"
 
 [build-system]
 requires = ["hatchling"]
@@ -80,10 +83,6 @@ docs = [
     "mkdocs-material>=9.5",
     "mkdocs-api-autonav>=0.2",
 ]
-
-[tool.uv.sources]
-fastapi-tools = { path = "../fastapi-tools", editable = true }
-llm-core = { path = "../llm-core", editable = true }
 
 [tool.pyright]
 venvPath = "."
