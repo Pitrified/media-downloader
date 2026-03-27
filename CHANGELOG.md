@@ -7,6 +7,15 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [0.1.1] - 2026-03-27
+
+### Fixed
+
+- Added `[tool.hatch.metadata] allow-direct-references = true` so hatchling accepts direct
+  URL references to internal git-tag dependencies at build time.
+
+---
+
 ## [0.1.0] - 2026-03-23
 
 Initial release. Self-hosted media downloading service for Instagram, YouTube/TikTok, web
