@@ -83,6 +83,7 @@ nav:
       - Pre-commit Hooks: guides/pre_commit.md
       - Params / Config Pattern: guides/params_config.md
       - Webapp setup: guides/webapp_setup.md
+      - Environment Loading: guides/env_loading.md
   - API Reference: reference/
   - Contributing: contributing.md
 
