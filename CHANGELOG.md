@@ -7,6 +7,24 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [0.1.2] - 2026-03-30
+
+### Changed
+
+- Removed automatic `load_env()` call from `media_downloader/__init__.py`; callers are
+  now responsible for loading environment variables before importing params.
+- Moved `load_env()` into `tests/conftest.py` so tests continue to pick up
+  `~/cred/media-downloader/.env` without relying on package-level side effects.
+- Bumped `llm-core` dependency from `v0.2.0` to `v0.2.1` across all extras
+  (`stt-local`, `stt-api`, `faster-whisper`, and the base dep).
+
+### Added
+
+- `docs/guides/env_loading.md` - guide explaining the environment loading
+  pattern and how to call `load_env()` correctly from application code.
+
+---
+
 ## [0.1.1] - 2026-03-27
 
 ### Fixed
