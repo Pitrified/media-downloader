@@ -1165,8 +1165,8 @@ wheels = [
 
 [[package]]
 name = "llm-core"
-version = "0.2.0"
-source = { git = "https://github.com/Pitrified/llm-core?rev=v0.2.0#41064351b13ff3589828070819eb2184a79c043a" }
+version = "0.2.1"
+source = { git = "https://github.com/Pitrified/llm-core?rev=v0.2.1#7a3e156c2dbe408bc8a2b3857eb5178a3b5b1836" }
 dependencies = [
     { name = "dotenv" },
     { name = "jinja2" },
@@ -1461,10 +1461,10 @@ requires-dist = [
     { name = "fastapi", marker = "extra == 'webapp'", specifier = ">=0.109.0" },
     { name = "fastapi-tools", marker = "extra == 'webapp'", git = "https://github.com/Pitrified/fastapi-tools?rev=v0.1.0" },
     { name = "instaloader", marker = "extra == 'instagram'", specifier = ">=4.14" },
-    { name = "llm-core", marker = "extra == 'llm-core-base'", git = "https://github.com/Pitrified/llm-core?rev=v0.2.0" },
-    { name = "llm-core", extras = ["faster-whisper"], marker = "extra == 'stt-local-fast'", git = "https://github.com/Pitrified/llm-core?rev=v0.2.0" },
-    { name = "llm-core", extras = ["openai"], marker = "extra == 'stt-api'", git = "https://github.com/Pitrified/llm-core?rev=v0.2.0" },
-    { name = "llm-core", extras = ["whisper"], marker = "extra == 'stt-local'", git = "https://github.com/Pitrified/llm-core?rev=v0.2.0" },
+    { name = "llm-core", marker = "extra == 'llm-core-base'", git = "https://github.com/Pitrified/llm-core?rev=v0.2.1" },
+    { name = "llm-core", extras = ["faster-whisper"], marker = "extra == 'stt-local-fast'", git = "https://github.com/Pitrified/llm-core?rev=v0.2.1" },
+    { name = "llm-core", extras = ["openai"], marker = "extra == 'stt-api'", git = "https://github.com/Pitrified/llm-core?rev=v0.2.1" },
+    { name = "llm-core", extras = ["whisper"], marker = "extra == 'stt-local'", git = "https://github.com/Pitrified/llm-core?rev=v0.2.1" },
     { name = "loguru", specifier = ">=0.7.3" },
     { name = "media-downloader", extras = ["instagram", "video", "recipe", "stt-local", "webapp"], marker = "extra == 'all'" },
     { name = "media-downloader", extras = ["instagram", "video", "recipe", "stt-local-fast", "webapp"], marker = "extra == 'box'" },
